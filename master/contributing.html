@@ -219,6 +219,32 @@ git rebase -i HEAD~5
 </div>
 <p>Once your commit history is clean, ensure you have based on the <a class="reference external" href="#updating-your-fork">latest upstream</a> before you open the PR.</p>
 </div>
+<div class="section" id="commit-messages">
+<h3>Commit messages<a class="headerlink" href="#commit-messages" title="Permalink to this headline">¶</a></h3>
+<p>Please make the first line of your commit message a summary of the change that a user (not a developer) of Operator would like to read,
+and prefix it with the most relevant directory of the change followed by a colon.
+The changelog gets made by looking at just these first lines so make it good!</p>
+<p>If you have more to say about the commit, then enter a blank line and carry on the description.
+Remember to say why the change was needed - the commit itself shows what was changed.</p>
+<p>Writing more is better than less. Comparing the behaviour before the change to that after the change is very useful.
+Imagine you are writing to yourself in 12 months time when you’ve forgotten everything about what you just did, and you need to get up to speed quickly.</p>
+<p>If the change fixes an issue then write Fixes #1234 in the commit message.
+This can be on the subject line if it will fit. If you don’t want to close the associated issue just put #1234 and the change will get linked into the issue.</p>
+<p>Here is an example of a short commit message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sidecar</span><span class="p">:</span> <span class="n">log</span> <span class="n">on</span> <span class="n">reconcile</span> <span class="n">loop</span> <span class="o">-</span> <span class="n">fixes</span> <span class="c1">#1234</span>
+</pre></div>
+</div>
+<p>And here is an example of a longer one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">api</span><span class="p">:</span> <span class="n">now</span> <span class="n">supports</span> <span class="n">host</span> <span class="n">networking</span> <span class="p">(</span><span class="c1">#1234)</span>
+
+<span class="n">The</span> <span class="n">operator</span> <span class="n">CRD</span> <span class="n">now</span> <span class="n">has</span> <span class="n">a</span> <span class="s2">&quot;network&quot;</span> <span class="nb">property</span> <span class="n">that</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span>
+<span class="n">select</span> <span class="n">host</span> <span class="n">networking</span> <span class="k">as</span> <span class="n">well</span> <span class="k">as</span> <span class="n">setting</span> <span class="n">the</span> <span class="n">apropriate</span> <span class="n">DNS</span> <span class="n">policy</span><span class="o">.</span>
+
+<span class="n">Fixes</span> <span class="c1">#1234</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="submitting">
 <h3>Submitting<a class="headerlink" href="#submitting" title="Permalink to this headline">¶</a></h3>
 <p>Go to the <a class="reference external" href="https://www.github.com/scylladb/scylla-operator">Scylla Operator github</a> to open the PR. If you have pushed recently, you should see an obvious link to open the PR. If you have not pushed recently, go to the Pull Request tab and select your fork and branch for the PR.</p>
