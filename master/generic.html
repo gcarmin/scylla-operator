@@ -175,7 +175,7 @@ Full details for all the configuration options can be found in the <a class="ref
 </div>
 <p>We can verify that a Kubernetes object has been created that represents our new Scylla cluster with the command below.
 This is important because it shows that  has successfully extended Kubernetes to make Scylla clusters a first class citizen in the Kubernetes cloud-native environment.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla get clusters.scylla.scylladb.com</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla get ScyllaCluster</span>
 </pre></div>
 </div>
 <p>Checking the pods that are created is as easy as:</p>
@@ -204,7 +204,7 @@ This pattern is as follows: <code class="docutils literal notranslate"><span cla
 </pre></div>
 </div>
 <p>You can also track the state of a Scylla cluster from its status. To check the current status of a Cluster, run:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla describe clusters.scylla.scylladb.com simple-cluster</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla describe ScyllaCluster simple-cluster</span>
 </pre></div>
 </div>
 <p>Checking the logs of the running scylla instances can be done like this:</p>
@@ -383,7 +383,7 @@ You can do this by running the following command in the <code class="docutils li
 <div class="section" id="scale-up">
 <h2>Scale Up<a class="headerlink" href="#scale-up" title="Permalink to this headline">¶</a></h2>
 <p>The operator supports scale up of a rack as well as addition of new racks. To make the changes, you can use:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla edit clusters.scylla.scylladb.com simple-cluster</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla edit ScyllaCluster simple-cluster</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -391,7 +391,7 @@ You can do this by running the following command in the <code class="docutils li
 <li><p>To add a new rack, append the <code class="docutils literal notranslate"><span class="pre">racks</span></code> list with a new rack. Remember to choose a different rack name for the new rack.</p></li>
 <li><p>After editing and saving the yaml, check your cluster’s Status and Events for information on what’s happening:</p></li>
 </ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla describe clusters.scylla.scylladb.com simple-cluster </span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla describe ScyllaCluster simple-cluster</span>
 </pre></div>
 </div>
 </div>
@@ -444,14 +444,14 @@ optional arguments:
 <div class="section" id="scale-down">
 <h2>Scale Down<a class="headerlink" href="#scale-down" title="Permalink to this headline">¶</a></h2>
 <p>The operator supports scale down of a rack. To make the changes, you can use:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla edit clusters.scylla.scylladb.com simple-cluster</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla edit ScyllaCluster simple-cluster</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>To scale down a rack, change the <code class="docutils literal notranslate"><span class="pre">Spec.Members</span></code> field of the rack to the desired value.</p></li>
 <li><p>After editing and saving the yaml, check your cluster’s Status and Events for information on what’s happening:</p></li>
 </ul>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla describe clusters.scylla.scylladb.com simple-cluster</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">kubectl -n scylla describe ScyllaCluster simple-cluster</span>
 </pre></div>
 </div>
 </div>
@@ -570,7 +570,7 @@ optional arguments:
                 &#169; 2012, ScyllaDB. All rights reserved.
             </div>
             <div class="footer-last-updated">
-                Last updated on 21 October 2020.
+                Last updated on 02 November 2020.
             </div>
         </div>
         <div class="footer-links">
